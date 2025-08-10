@@ -1,0 +1,32 @@
+/* Стили для сетки */
+.floor-canvas {
+  position: relative;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.floor-canvas.grid {
+  background-image: 
+    linear-gradient(to right, #eee 1px, transparent 1px),
+    linear-gradient(to bottom, #eee 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+}
+
+.floor-canvas.grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, #ddd 1px, transparent 1px),
+    linear-gradient(to bottom, #ddd 1px, transparent 1px);
+  background-size: calc(var(--grid-size) * 5) calc(var(--grid-size) * 5);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+:root {
+  --grid-size: 20px;
+}
